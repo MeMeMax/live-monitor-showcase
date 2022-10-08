@@ -5,6 +5,7 @@ import { WhiteboardItemComponent } from './components/whiteboard-item/whiteboard
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [WhiteboardComponent, WhiteboardItemComponent]
+  declarations: [WhiteboardComponent, WhiteboardItemComponent],
+  exports: [WhiteboardComponent, WhiteboardItemComponent]
 })
 export class NgxWhiteboardModule {}
