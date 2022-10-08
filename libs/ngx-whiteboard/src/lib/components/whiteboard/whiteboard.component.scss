@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+.whiteboard {
+  background-color: #dadada;
+  height: 100%;
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+}
