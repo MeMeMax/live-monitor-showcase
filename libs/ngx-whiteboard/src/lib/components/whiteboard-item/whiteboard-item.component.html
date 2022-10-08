@@ -1,1 +1,8 @@
-<div class="box" cdkDrag>I can only be dragged within the dotted container</div>
+<div cdkDrag [cdkDragDisabled]="true" #box class="outer-box" [style.width.px]="width" [style.height.px]="height">
+  <div>I can only be dragged within the dotted container</div>
+
+  <div class="handle handle__north" liveMonitorItemResize direction="n"></div>
+  <div class="handle handle__east" liveMonitorItemResize direction="e"></div>
+  <div class="handle handle__south" liveMonitorItemResize direction="s"></div>
+  <div class="handle handle__west" liveMonitorItemResize direction="w"></div>
+</div>
