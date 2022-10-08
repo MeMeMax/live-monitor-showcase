@@ -15,10 +15,7 @@
         "polyfills": "apps/live-monitor-demo/src/polyfills.ts",
         "tsConfig": "apps/live-monitor-demo/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/live-monitor-demo/src/favicon.ico",
-          "apps/live-monitor-demo/src/assets"
-        ],
+        "assets": ["apps/live-monitor-demo/src/favicon.ico", "apps/live-monitor-demo/src/assets"],
         "styles": ["apps/live-monitor-demo/src/styles.scss"],
         "scripts": []
       },
@@ -76,10 +73,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/live-monitor-demo/**/*.ts",
-          "apps/live-monitor-demo/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/live-monitor-demo/**/*.ts", "apps/live-monitor-demo/**/*.html"]
       }
     },
     "test": {
