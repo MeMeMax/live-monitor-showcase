@@ -12,6 +12,7 @@ import { DynamicWidgetDirective } from './directives/dynamic-widget/dynamic-widg
 
 @NgModule({
   declarations: [DynamicWidgetDirective],
-  imports: [CommonModule, NgxWhiteboardModule]
+  imports: [CommonModule, NgxWhiteboardModule],
+  exports: [DynamicWidgetDirective]
 })
 export class WidgetModule {}
