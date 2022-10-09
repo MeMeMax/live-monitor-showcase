@@ -1,6 +1,6 @@
 import { Directive, HostListener, Input } from '@angular/core';
 
-import { WhiteboardItemComponent } from '@live-monitor/ngx-whiteboard';
+import { WhiteboardItemComponent } from '../../components/whiteboard-item/whiteboard-item.component';
 
 @Directive({
   selector: '[liveMonitorItemResize]'
