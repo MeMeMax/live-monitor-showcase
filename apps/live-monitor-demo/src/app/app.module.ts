@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NgxWhiteboardModule } from '@live-monitor/ngx-whiteboard';
+import { LiveMonitorModule } from '@live-monitor/ngx-live-monitor';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxWhiteboardModule],
+  imports: [BrowserModule, LiveMonitorModule],
   providers: [],
   bootstrap: [AppComponent]
 })
