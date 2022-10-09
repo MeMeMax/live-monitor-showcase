@@ -1,5 +1,5 @@
 import { CdkDrag } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'live-monitor-whiteboard-item',
@@ -11,10 +11,8 @@ export class WhiteboardItemComponent implements OnInit {
   @ViewChild(CdkDrag) cdkDrag!: CdkDrag;
 
   @Input() id!: string;
-  @Input() width!: number;
-  @Input() height!: number;
-  @Input() x!: number;
-  @Input() y!: number;
+  @HostBinding('style.width.px') @Input() width!: number;
+  @HostBinding('style.height.px') @Input() height!: number;
 
   dragDisabled = false;
 

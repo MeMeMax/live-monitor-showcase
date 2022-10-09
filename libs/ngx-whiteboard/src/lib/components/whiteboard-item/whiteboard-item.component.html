@@ -1,4 +1,4 @@
-<div cdkDrag [cdkDragDisabled]="dragDisabled" #box class="box" [style.width.px]="width" [style.height.px]="height">
+<div cdkDrag [cdkDragDisabled]="dragDisabled" cdkDragRootElement=".root-dragable-element" #box class="box">
   <div><ng-content></ng-content></div>
 
   <div class="handle handle__north" liveMonitorItemResize direction="n"></div>
