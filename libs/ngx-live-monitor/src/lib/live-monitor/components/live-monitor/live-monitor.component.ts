@@ -18,8 +18,8 @@ export class LiveMonitorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.whiteboardStore.addWhiteboardItem({ type: 'text', x: 0, y: 0, w: 6, h: 3 });
-    this.whiteboardStore.addWhiteboardItem({ type: 'text', x: 6, y: 0, w: 6, h: 3 });
+    this.whiteboardStore.addWhiteboardItem({ type: 'text', x: 0, y: 0, w: 200, h: 200 });
+    this.whiteboardStore.addWhiteboardItem({ type: 'text', x: 6, y: 0, w: 200, h: 200 });
   }
 
   identifyItem(_index: number, item: WhiteboardItem) {
