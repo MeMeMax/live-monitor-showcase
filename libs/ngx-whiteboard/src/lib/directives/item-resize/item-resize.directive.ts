@@ -25,27 +25,73 @@ export class ItemResizeDirective {
   }
 
   resize() {
-    if (this.direction === 'e' || this.direction === 'se') {
-      this.host.width = Number(this.mouse.x > this.boxPosition.left) ? this.mouse.x - this.boxPosition.left + 10 : 0;
-    }
-
-    if (this.direction === 's' || this.direction === 'se') {
-      this.host.height = Number(this.mouse.y > this.boxPosition.top) ? this.mouse.y - this.boxPosition.top + 10 : 0;
-    }
-
     if (this.direction === 'sw') {
-      const width = this.originalBoxPosition.width - (this.mouse.x - this.mouseOriginalPosition.x);
-      const height = this.originalBoxPosition.height + (this.mouse.y - this.mouseOriginalPosition.y);
-      const x = this.originalBoxPosition.left - 10 + (this.mouse.x - this.mouseOriginalPosition.x);
-      const y = this.originalBoxPosition.top;
+      this.resizeSouthWest();
+    } else if (this.direction === 'ne') {
+      this.resizeNorthEast();
+    } else if (this.direction === 'se') {
+      this.resizeSouthEast();
+    } else {
+      this.resizeOtherSides();
+    }
+  }
 
-      if (width > this.minimumBoxSize) {
-        this.host.width = width;
-        this.host.cdkDrag.setFreeDragPosition({ x, y });
-      }
-      if (height > this.minimumBoxSize) {
-        this.host.height = height;
-      }
+  resizeSouthWest() {
+    const width = this.originalBoxPosition.width - (this.mouse.x - this.mouseOriginalPosition.x);
+    const height = this.originalBoxPosition.height + (this.mouse.y - this.mouseOriginalPosition.y);
+    const x = this.originalBoxPosition.left + (this.mouse.x - this.mouseOriginalPosition.x);
+    const y = this.originalBoxPosition.top;
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
+    }
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+    }
+  }
+
+  resizeNorthEast() {
+    const width = this.originalBoxPosition.width + (this.mouse.x - this.mouseOriginalPosition.x);
+    const height = this.originalBoxPosition.height - (this.mouse.y - this.mouseOriginalPosition.y);
+    const x = this.originalBoxPosition.left;
+    const y = this.originalBoxPosition.top + (this.mouse.y - this.mouseOriginalPosition.y);
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
+    }
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+    }
+  }
+
+  resizeSouthEast() {
+    const width = this.originalBoxPosition.width + (this.mouse.x - this.mouseOriginalPosition.x);
+    const height = this.originalBoxPosition.height + (this.mouse.y - this.mouseOriginalPosition.y);
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+    }
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+    }
+  }
+
+  resizeOtherSides() {
+    const width = this.originalBoxPosition.width - (this.mouse.x - this.mouseOriginalPosition.x);
+    const height = this.originalBoxPosition.height - (this.mouse.y - this.mouseOriginalPosition.y);
+    const x = this.originalBoxPosition.left + (this.mouse.x - this.mouseOriginalPosition.x);
+    const y = this.originalBoxPosition.top + (this.mouse.y - this.mouseOriginalPosition.y);
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+    }
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+    }
+    if (width > this.minimumBoxSize && height > this.minimumBoxSize) {
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
     }
   }
 
