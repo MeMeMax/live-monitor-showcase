@@ -59,10 +59,10 @@ export class ItemResizeDirective {
 
     if (width > this.minimumBoxSize) {
       this.host.width = width;
-      this.host.cdkDrag.setFreeDragPosition({ x, y });
     }
     if (height > this.minimumBoxSize) {
       this.host.height = height;
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
     }
   }
 
