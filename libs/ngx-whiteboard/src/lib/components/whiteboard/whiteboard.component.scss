@@ -3,10 +3,17 @@
   height: 100%;
 }
 
-.whiteboard {
-  background-color: #dadada;
-  height: 100%;
-  display: inline-block;
-  overflow: auto;
+.whiteboard-container {
+  position: relative;
   width: 100%;
+  height: 100%;
+
+  .whiteboard {
+    position: absolute;
+    background-color: #dadada;
+    height: 100%;
+    display: inline-block;
+    overflow: auto;
+    width: 100%;
+  }
 }
