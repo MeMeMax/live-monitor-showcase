@@ -10,6 +10,7 @@ export class WhiteboardItemComponent implements OnInit {
   @ViewChild('box') box!: ElementRef;
   @ViewChild(CdkDrag) cdkDrag!: CdkDrag;
 
+  @Input() id!: string;
   @Input() width!: number;
   @Input() height!: number;
   @Input() x!: number;
