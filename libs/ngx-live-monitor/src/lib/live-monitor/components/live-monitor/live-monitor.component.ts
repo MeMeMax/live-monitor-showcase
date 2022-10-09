@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WhiteboardStoreService } from '@live-monitor/ngx-whiteboard';
+import { WhiteboardItem, WhiteboardStoreService } from '@live-monitor/ngx-whiteboard';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'live-monitor-live-monitor',
@@ -9,7 +11,15 @@ import { WhiteboardStoreService } from '@live-monitor/ngx-whiteboard';
   providers: [WhiteboardStoreService]
 })
 export class LiveMonitorComponent implements OnInit {
-  constructor() {}
+  whiteboardItem$!: Observable<Array<WhiteboardItem>>;
+
+  constructor(private whiteboardStore: WhiteboardStoreService) {
+    this.whiteboardItem$ = this.whiteboardStore.whiteboardItem$;
+  }
 
   ngOnInit(): void {}
+
+  identifyItem(_index: number, item: DashboardItem) {
+    return item.id;
+  }
 }
