@@ -1,0 +1,24 @@
+{
+  "name": "ngx-live-monitor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ngx-live-monitor/src",
+  "prefix": "live-monitor",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ngx-live-monitor"],
+      "options": {
+        "jestConfig": "libs/ngx-live-monitor/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/ngx-live-monitor/**/*.ts", "libs/ngx-live-monitor/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@live-monitor/ngx-live-monitor": ["libs/ngx-live-monitor/src/index.ts"],
       "@live-monitor/ngx-whiteboard": ["libs/ngx-whiteboard/src/index.ts"]
     }
   },
