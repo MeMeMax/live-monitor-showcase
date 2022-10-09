@@ -25,7 +25,18 @@ export class ItemResizeDirective {
   }
 
   resize() {
-    if (this.direction === 'sw') {
+    if (this.direction === 'e') {
+      this.resizeEast();
+    }
+    if (this.direction === 'w') {
+      this.resizeWest();
+    }
+    if (this.direction === 'n') {
+      this.resizeNorth();
+    }
+    if (this.direction === 's') {
+      this.resizeSouth();
+    } else if (this.direction === 'sw') {
       this.resizeSouthWest();
     } else if (this.direction === 'ne') {
       this.resizeNorthEast();
@@ -33,6 +44,44 @@ export class ItemResizeDirective {
       this.resizeSouthEast();
     } else if (this.direction === 'nw') {
       this.resizeNorthWest();
+    }
+  }
+
+  resizeNorth() {
+    const height = this.originalBoxPosition.height - (this.mouse.y - this.mouseOriginalPosition.y);
+    const x = this.originalBoxPosition.left;
+    const y = this.originalBoxPosition.top + (this.mouse.y - this.mouseOriginalPosition.y);
+
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
+    }
+  }
+
+  resizeEast() {
+    const width = this.originalBoxPosition.width + (this.mouse.x - this.mouseOriginalPosition.x);
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+    }
+  }
+
+  resizeSouth() {
+    const height = this.originalBoxPosition.height + (this.mouse.y - this.mouseOriginalPosition.y);
+
+    if (height > this.minimumBoxSize) {
+      this.host.height = height;
+    }
+  }
+
+  resizeWest() {
+    const width = this.originalBoxPosition.width - (this.mouse.x - this.mouseOriginalPosition.x);
+    const x = this.originalBoxPosition.left + (this.mouse.x - this.mouseOriginalPosition.x);
+    const y = this.originalBoxPosition.top;
+
+    if (width > this.minimumBoxSize) {
+      this.host.width = width;
+      this.host.cdkDrag.setFreeDragPosition({ x, y });
     }
   }
 
