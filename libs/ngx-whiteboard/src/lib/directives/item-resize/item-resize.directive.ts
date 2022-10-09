@@ -152,7 +152,7 @@ export class ItemResizeDirective {
   onMouseMove(event: MouseEvent) {
     if (this.grabbed) {
       this.mouse = { x: event.clientX, y: event.clientY };
-      this.boxPosition = this.getBoxPosition((event.target as any)?.parentElement);
+      this.boxPosition = this.getBoxPosition(this.host.box.nativeElement);
       this.resize();
     }
   }
