@@ -1,5 +1,5 @@
 <div cdkDrag [cdkDragDisabled]="dragDisabled" #box class="box" [style.width.px]="width" [style.height.px]="height">
-  <div>I can only be dragged within the dotted container {{ dragDisabled }}</div>
+  <div><ng-content></ng-content></div>
 
   <div class="handle handle__north" liveMonitorItemResize direction="n"></div>
   <div class="handle handle__east" liveMonitorItemResize direction="e"></div>
