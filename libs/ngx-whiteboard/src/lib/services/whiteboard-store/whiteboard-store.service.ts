@@ -47,11 +47,11 @@ export class WhiteboardStoreService extends ComponentStore<GridstackState> {
 
   readonly addWhiteboardItem = this.effect((newWhiteboardItem$: Observable<WhiteboardItem>) => {
     return newWhiteboardItem$.pipe(
-      tap((dashboardItem: WhiteboardItem) => {
+      tap((whiteboardItem: WhiteboardItem) => {
         const nextId = this.get((state) => state.itemIdCount) + 1;
         const whiteboardItems = this.get((state) => state.whiteboardItems);
 
-        this.updateWhiteboardItems({ itemIdCount: nextId, whiteboardItems: [...whiteboardItems, { ...dashboardItem, id: `${nextId}` }] });
+        this.updateWhiteboardItems({ itemIdCount: nextId, whiteboardItems: [...whiteboardItems, { ...whiteboardItem, id: `${nextId}` }] });
       })
     );
   });
@@ -80,13 +80,13 @@ export class WhiteboardStoreService extends ComponentStore<GridstackState> {
     );
   });
 
-  readonly modifyWhiteboardItem = this.effect((dashboardItem$: Observable<WhiteboardItem>) => {
-    return dashboardItem$.pipe(
-      tap((dashboardItem: WhiteboardItem) => {
+  readonly modifyWhiteboardItem = this.effect((whiteboardItem$: Observable<WhiteboardItem>) => {
+    return whiteboardItem$.pipe(
+      tap((whiteboardItem: WhiteboardItem) => {
         const whiteboardItems = this.get((state) => state.whiteboardItems);
         const updatedWhiteboardItems = whiteboardItems.map((item) => {
-          if (item.id === dashboardItem.id) {
-            return { ...item, ...dashboardItem };
+          if (item.id === whiteboardItem.id) {
+            return { ...item, ...whiteboardItem };
           }
 
           return item;
