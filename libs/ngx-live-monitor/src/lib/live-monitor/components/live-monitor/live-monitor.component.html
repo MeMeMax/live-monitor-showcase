@@ -1,5 +1,5 @@
 <live-monitor-whiteboard>
-  <live-monitor-whiteboard-item *ngFor="let item of whiteboardItem$ | async; trackBy: identifyItem" [id]="item.id!">
+  <live-monitor-whiteboard-item *ngFor="let item of whiteboardItem$ | async; trackBy: identifyItem" [id]="item.id!" [width]="item.w" [height]="item.h">
     <ng-container liveMonitorDynamicWidget [type]="item['type']" [id]="item.id!"></ng-container>
   </live-monitor-whiteboard-item>
 </live-monitor-whiteboard>
