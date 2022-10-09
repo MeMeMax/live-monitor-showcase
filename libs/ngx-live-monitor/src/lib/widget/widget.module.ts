@@ -8,8 +8,10 @@ import { CommonModule } from '@angular/common';
 
 import { NgxWhiteboardModule } from '@live-monitor/ngx-whiteboard';
 
+import { DynamicWidgetDirective } from './directives/dynamic-widget/dynamic-widget.directive';
+
 @NgModule({
-  declarations: [],
+  declarations: [DynamicWidgetDirective],
   imports: [CommonModule, NgxWhiteboardModule]
 })
 export class WidgetModule {}
