@@ -31,8 +31,8 @@ export class ItemResizeDirective {
       this.resizeNorthEast();
     } else if (this.direction === 'se') {
       this.resizeSouthEast();
-    } else {
-      this.resizeOtherSides();
+    } else if (this.direction === 'nw') {
+      this.resizeNorthWest();
     }
   }
 
@@ -78,19 +78,23 @@ export class ItemResizeDirective {
     }
   }
 
-  resizeOtherSides() {
+  resizeNorthWest() {
     const width = this.originalBoxPosition.width - (this.mouse.x - this.mouseOriginalPosition.x);
     const height = this.originalBoxPosition.height - (this.mouse.y - this.mouseOriginalPosition.y);
-    const x = this.originalBoxPosition.left + (this.mouse.x - this.mouseOriginalPosition.x);
-    const y = this.originalBoxPosition.top + (this.mouse.y - this.mouseOriginalPosition.y);
+    let x = this.originalBoxPosition.left + this.minimumBoxSize;
+    let y = this.originalBoxPosition.top + this.minimumBoxSize;
 
     if (width > this.minimumBoxSize) {
+      x = this.originalBoxPosition.left + (this.mouse.x - this.mouseOriginalPosition.x);
       this.host.width = width;
     }
+
     if (height > this.minimumBoxSize) {
+      y = this.originalBoxPosition.top + (this.mouse.y - this.mouseOriginalPosition.y);
       this.host.height = height;
     }
-    if (width > this.minimumBoxSize && height > this.minimumBoxSize) {
+
+    if (width > this.minimumBoxSize || height > this.minimumBoxSize) {
       this.host.cdkDrag.setFreeDragPosition({ x, y });
     }
   }
