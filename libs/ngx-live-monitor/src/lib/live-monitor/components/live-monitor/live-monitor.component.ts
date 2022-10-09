@@ -19,7 +19,7 @@ export class LiveMonitorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  identifyItem(_index: number, item: DashboardItem) {
+  identifyItem(_index: number, item: WhiteboardItem) {
     return item.id;
   }
 }
