@@ -30,6 +30,7 @@
 .handle {
   position: absolute;
   border: 5px solid;
+  box-sizing: border-box;
 
   &__north {
     cursor: n-resize;
@@ -53,5 +54,29 @@
     cursor: w-resize;
     left: 0;
     height: 100%;
+  }
+
+  &__north-west {
+    cursor: nw-resize;
+    left: 0;
+    top: 0;
+  }
+
+  &__south-west {
+    cursor: sw-resize;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__north-east {
+    cursor: ne-resize;
+    right: 0;
+    top: 0;
+  }
+
+  &__south-east {
+    cursor: se-resize;
+    right: 0;
+    bottom: 0;
   }
 }

@@ -1,3 +1,4 @@
+import { CdkDrag } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class WhiteboardItemComponent implements OnInit {
   @ViewChild('box') box!: ElementRef;
+  @ViewChild(CdkDrag) cdkDrag!: CdkDrag;
 
-  @Input() public width!: number;
-  @Input() public height!: number;
+  @Input() width!: number;
+  @Input() height!: number;
+  @Input() x!: number;
+  @Input() y!: number;
 
   dragDisabled = false;
 
