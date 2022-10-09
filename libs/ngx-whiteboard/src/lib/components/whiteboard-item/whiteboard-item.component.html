@@ -1,12 +1,12 @@
-<div cdkDrag [cdkDragDisabled]="dragDisabled" #box class="outer-box" [style.width.px]="width" [style.height.px]="height">
+<div cdkDrag [cdkDragDisabled]="dragDisabled" #box class="box" [style.width.px]="width" [style.height.px]="height">
   <div>I can only be dragged within the dotted container {{ dragDisabled }}</div>
 
   <div class="handle handle__north" liveMonitorItemResize direction="n"></div>
   <div class="handle handle__east" liveMonitorItemResize direction="e"></div>
   <div class="handle handle__south" liveMonitorItemResize direction="s"></div>
   <div class="handle handle__west" liveMonitorItemResize direction="w"></div>
-  <div class="handle handle__north-west" liveMonitorItemResize direction="nw"></div>
-  <div class="handle handle__south-west" liveMonitorItemResize direction="sw"></div>
-  <div class="handle handle__north-east" liveMonitorItemResize direction="ne"></div>
-  <div class="handle handle__south-east" liveMonitorItemResize direction="se"></div>
+  <div class="handle handle__north-west handle__corner" liveMonitorItemResize direction="nw"></div>
+  <div class="handle handle__south-west handle__corner" liveMonitorItemResize direction="sw"></div>
+  <div class="handle handle__north-east handle__corner" liveMonitorItemResize direction="ne"></div>
+  <div class="handle handle__south-east handle__corner" liveMonitorItemResize direction="se"></div>
 </div>

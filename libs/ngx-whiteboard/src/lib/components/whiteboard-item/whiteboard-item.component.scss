@@ -2,7 +2,7 @@
   display: block;
 }
 
-.outer-box {
+.box {
   width: 200px;
   height: 200px;
   border: solid 1px #ccc;
@@ -29,8 +29,16 @@
 
 .handle {
   position: absolute;
-  border: 5px solid;
+  border: 1px solid #4286f4;
   box-sizing: border-box;
+
+  &__corner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; /*magic to turn square into circle*/
+    background: white;
+    border: 3px solid #4286f4;
+  }
 
   &__north {
     cursor: n-resize;
@@ -58,25 +66,25 @@
 
   &__north-west {
     cursor: nw-resize;
-    left: 0;
-    top: 0;
+    left: -5px;
+    top: -5px;
   }
 
   &__south-west {
     cursor: sw-resize;
-    left: 0;
-    bottom: 0;
+    left: -5px;
+    bottom: -5px;
   }
 
   &__north-east {
     cursor: ne-resize;
-    right: 0;
-    top: 0;
+    right: -5px;
+    top: -5px;
   }
 
   &__south-east {
     cursor: se-resize;
-    right: 0;
-    bottom: 0;
+    right: -5px;
+    bottom: -5px;
   }
 }
