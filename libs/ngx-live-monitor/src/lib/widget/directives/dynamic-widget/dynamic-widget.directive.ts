@@ -8,7 +8,7 @@ import { Directive, Input, OnInit, ViewContainerRef } from '@angular/core';
 import { WidgetRegistryService } from '../../services/widget-registry/widget-registry.service';
 
 @Directive({
-  selector: '[wmDynamicWidget]'
+  selector: '[liveMonitorDynamicWidget]'
 })
 export class DynamicWidgetDirective implements OnInit {
   @Input() id!: string;
