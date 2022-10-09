@@ -1,5 +1,4 @@
-import { CdkDrag } from '@angular/cdk/drag-drop';
-import { AfterViewInit, Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input } from '@angular/core';
 
 import { WhiteboardItemComponent } from '@live-monitor/ngx-whiteboard';
 
@@ -10,7 +9,7 @@ export class ItemResizeDirective {
   @Input() direction!: string;
 
   minimumBoxSize = 100;
-  boxPosition!: { left: number; top: number; height: number; width: number };
+  boxPosition!: { left: number; top: number; height: number; width: number }; // Todo: define modles for all these inline type definitions
   originalBoxPosition!: { left: number; top: number; height: number; width: number };
   mouse!: { x: number; y: number };
   mouseOriginalPosition!: { x: number; y: number };
@@ -18,7 +17,7 @@ export class ItemResizeDirective {
 
   constructor(private host: WhiteboardItemComponent) {}
 
-  private getBoxPosition(element: any) {
+  private getBoxPosition(element: HTMLElement) {
     const { left, top, height, width } = element.getBoundingClientRect();
 
     return { left, top, height, width };
@@ -167,14 +166,12 @@ export class ItemResizeDirective {
 
   @HostListener('mouseup', ['$event'])
   onMouseUp(event: MouseEvent) {
-    console.log('mouseup');
     this.grabbed = false;
     this.host.dragDisabled = false;
   }
 
   @HostListener('window:mouseup', ['$event'])
   onMouseGlobalUp(event: MouseEvent) {
-    console.log('mouseglobalup');
     this.grabbed = false;
     this.host.dragDisabled = false;
   }
